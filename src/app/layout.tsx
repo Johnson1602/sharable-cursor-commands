@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Sharable Cursor Command Builder",
@@ -26,6 +27,7 @@ export default function RootLayout({
     >
       <body className="bg-background text-foreground antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
