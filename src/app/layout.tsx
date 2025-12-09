@@ -5,10 +5,51 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://sharable-cursor-commands.vercel.app";
+const siteName = "Sharable Cursor Commands";
+const siteDescription =
+  "Create and share Cursor slash commands instantly. Generate shareable command links with custom names and content for seamless collaboration.";
+
 export const metadata: Metadata = {
-  title: "Sharable Cursor Command Builder",
-  description: "Generate shareable Cursor commands with a single click.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: ["Cursor", "Cursor commands", "shareable commands"],
+  manifest: "/manifest.json",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName,
+    title: siteName,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary",
+    title: siteName,
+    description: siteDescription,
+    creator: "@cursor",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  category: "technology",
 };
 
 const geist = Geist({
