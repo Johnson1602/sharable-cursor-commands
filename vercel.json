@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.willxuu.com/toolbox/sharable-cursor-commands",
+      "permanent": true
+    }
+  ]
+}
